@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<!-- 
+<i class="fa-solid fa-sun"></i>
+-->
+
+<body>
+    <div class="change-mode">
+        <span class="left-position" id="change" onclick="{changeMode()}"><i class="fa-solid fa-moon"></i> </span>
+    </div>
+    <div id="wrapper">
+        <div class="input-field">
+            <input type="text" id="inputField" readonly dir="rtl">
+        </div>
+        <div class="btns-wrapper">
+            <button onclick="inputField.value = '' " value="">C</button>
+            <button onclick="inputField.value = inputField.value.slice(0,-1) "><i
+                    class="fa-solid fa-delete-left"></i></button>
+            <button onclick="inputField.value += this.value" value="%">%</button>
+            <button onclick="inputField.value += this.value" value="/" class="operations"><i
+                    class="fa-solid fa-divide"></i></button>
+        </div>
+        <div class="btns-wrapper">
+            <button onclick="inputField.value += this.value" value="7">7</button>
+            <button onclick="inputField.value += this.value" value="8">8</button>
+            <button onclick="inputField.value += this.value" value="9">9</button>
+            <button onclick="inputField.value += this.value" value="*" class="operations"><i
+                    class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="btns-wrapper">
+            <button onclick="inputField.value += this.value" value="4">4</button>
+            <button onclick="inputField.value += this.value" value="5">5</button>
+            <button onclick="inputField.value += this.value" value="6">6</button>
+            <button onclick="inputField.value += this.value" value="-" class="operations">-</button>
+        </div>
+        <div class="btns-wrapper">
+            <button onclick="inputField.value += this.value" value="1">1</button>
+            <button onclick="inputField.value += this.value" value="2">2</button>
+            <button onclick="inputField.value += this.value" value="3">3</button>
+            <button onclick="inputField.value += this.value" value="+" class="operations">+</button>
+        </div>
+        <div class="btns-wrapper">
+            <button onclick="inputField.value += this.value" value="0">0</button>
+            <button onclick="inputField.value += this.value" value=".">.</button>
+            <button onclick="inputField.value = eval(inputField.value)" value="=" class="equal operations">=</button>
+
+        </div>
+    </div>
+
+    <script>
+        const change = document.getElementById("change");
+        const body = document.body;
+        const wrapper = document.getElementById("wrapper");
+        const sunIcon = "<i class='fas fa-sun'></i>";
+        const moonIcon = "<i class='fa-solid fa-moon'></i>";
+        const changeMode = () => {
+
+            body.classList.toggle("darkBody");
+            if (change.classList.contains("left-position")) {
+                change.classList.remove("left-position");
+                change.classList.add("right-position");
+                change.innerHTML = sunIcon;
+
+
+            } else {
+                change.classList.remove("right-position");
+                change.classList.add("left-position");
+                change.innerHTML = moonIcon;
+
+            }
+            wrapper.classList.add("animated");
+            setTimeout(() => {
+                wrapper.classList.remove("animated")
+            }, 500);
+        }
+    </script>
+</body>
+
+</html
